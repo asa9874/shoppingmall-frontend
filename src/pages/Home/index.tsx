@@ -1,10 +1,14 @@
+import ProductContainer from "./components/ProductContainer";
 
 
 function Home(){
     return(
-        <>
-            <div className="h-screen bg-gray-100">몸통</div>
-        </>
+        <div className="min-h-screen bg-gray-100 p-10">
+            <ProductContainer/>
+            <ProductContainer/>
+            <ProductContainer/>
+            <ProductContainer/>
+        </div>
     )
 }
 
