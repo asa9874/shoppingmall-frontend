@@ -24,7 +24,8 @@ export const getProducts = async (
         description: item.description,
         price: item.price,
         stock: item.stock,
-        sellerName: item.sellerName
+        sellerName: item.sellerName,
+        image:item.image,
     }));
     
   } catch (error) {

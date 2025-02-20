@@ -1,8 +1,9 @@
 export interface ProductInfo{
     id:Number;
-    name:String;
-    description:String;
+    name:string;
+    description:string;
     price:Number;
     stock:Number;
-    sellerName:String;
+    sellerName:string;
+    image:string;
 }
