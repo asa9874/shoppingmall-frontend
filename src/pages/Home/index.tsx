@@ -3,7 +3,7 @@
 function Home(){
     return(
         <>
-        <div className="bg-black">asdas</div>
+            <div className="h-screen bg-gray-100">몸통</div>
         </>
     )
 }
