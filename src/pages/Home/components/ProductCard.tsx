@@ -6,12 +6,17 @@ interface ProductCardProps {
 
 function ProductCard({ product }: ProductCardProps) {
     return (
-        <div className="h-full bg-blue-100 w-[200px] flex flex-col gap-1">
-            <img className="h-3/4 w-full bg-yellow-100" src={product.image}></img>
-            <span>{product.name}</span>
-            <span>{product.sellerName}</span> 
+        <div className="h-full bg-white w-[200px] flex flex-col gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all p-3 border border-gray-400">
+            <img 
+                className="h-3/4 w-full object-cover rounded-t-xl" 
+                src={product.image} 
+                alt={product.name}
+            />
+            <span className="text-lg font-semibold text-gray-800">{product.name}</span>
+            <span className="text-sm text-gray-500">{product.sellerName}</span> 
         </div>
     );
 }
+
 
 export default ProductCard;
