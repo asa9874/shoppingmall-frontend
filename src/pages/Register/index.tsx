@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { registerMember } from './apis/postRegister';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
   // 폼 상태 관리
@@ -9,6 +10,8 @@ function Register() {
     nickname: '',
     role: 'CUSTOMER', // 기본값은 'CUSTOMER'
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -31,7 +34,7 @@ function Register() {
     try {
       const responseData = await registerMember(memberData); 
       console.log('회원가입 성공:', responseData);
-
+      navigate('/'); 
     } catch (error) {
       console.error(error);
     }

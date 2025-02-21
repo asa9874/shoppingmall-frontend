@@ -19,10 +19,5 @@ export async function registerMember(memberData: { memberId: string, password: s
       return responseData; 
   
     } catch (error: unknown) {
-        if (error instanceof Error) {
-          throw new Error(`회원가입 오류: ${error.message}`);
-        } else {
-          throw new Error('회원가입 오류: 알 수 없는 오류 발생');
-        }
     }
   }
