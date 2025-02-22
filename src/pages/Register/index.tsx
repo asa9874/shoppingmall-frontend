@@ -41,8 +41,8 @@ function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-10">
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded shadow-md">
+    <div className="min-h-screen bg-gray-100 flex justify-center items-center">
+  <form onSubmit={handleSubmit} className="w-full max-w-md bg-white p-6 rounded shadow-md">
         <div className="mb-4">
           <label htmlFor="user_id" className="block text-sm font-medium text-gray-700">사용자 아이디</label>
           <input
