@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { loginMember } from "./apis/postLogin";
 import { useNavigate } from "react-router-dom";
-import { useAuthStore } from "../../store/useAuthStore";
+import { loginMember } from "./apis/postLogin";
 
 function Login() {
-  const { setNickname } = useAuthStore();
   const [formData, setFormData] = useState({ memberId: "", password: "" });
   const navigate = useNavigate();
 
@@ -14,7 +12,6 @@ function Login() {
     try {
       const responseData = await loginMember(formData);
       localStorage.setItem("token", responseData.token);
-      setNickname(responseData.nickname); 
       navigate("/");
     } catch (error) {
       console.error("로그인 실패:", error);

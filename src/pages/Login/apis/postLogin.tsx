@@ -8,7 +8,7 @@ export async function loginMember(memberData: { memberId: string; password: stri
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(memberData), // ✅ 백엔드에서 요구하는 'memberId' 필드 사용
+      body: JSON.stringify(memberData), 
     });
 
     if (!response.ok) {
@@ -21,8 +21,6 @@ export async function loginMember(memberData: { memberId: string; password: stri
     if (!responseData?.token) {
       throw new Error("로그인 응답에 토큰이 없습니다.");
     }
-
-    localStorage.setItem("token", responseData.token);
 
     return responseData;
   } catch (error) {
