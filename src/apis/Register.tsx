@@ -1,4 +1,4 @@
-import { BASE_URL } from "../../Home/context/baseURL";
+import { BASE_URL } from "../pages/Home/context/baseURL";
 
 export async function registerMember(memberData: { memberId: string, password: string, nickname: string, role: string }) {
     try {

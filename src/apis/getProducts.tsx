@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { ProductInfo } from '../types/ProductInfo';
-import { BASE_URL } from '../context/baseURL';
+import { BASE_URL } from '../pages/Home/context/baseURL';
 
 export const getProducts = async (
     count:Number
@@ -14,6 +14,7 @@ export const getProducts = async (
       }
     });
     const items = response.data;
+    console.log(items,"asdas");
     if (!Array.isArray(items)) {
       return [];
     }
