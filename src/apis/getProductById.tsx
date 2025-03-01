@@ -24,7 +24,7 @@ export const getProductById = async (
         price: item.price,
         stock: item.stock,
         sellerName: item.sellerName,
-        image: item.image,
+        image: BASE_URL+"/images/"+item.image,
         category: item.category,
       };
       
