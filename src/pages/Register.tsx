@@ -94,7 +94,6 @@ function Register() {
           >
             <option value="CUSTOMER">고객</option>
             <option value="SELLER">판매자</option>
-            <option value="BOTH">고객 및 판매자</option>
           </select>
         </div>
 
