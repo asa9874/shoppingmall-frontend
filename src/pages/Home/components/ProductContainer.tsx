@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { getProducts } from "../../../apis/getProducts";
-import { ProductInfo } from "../../../types/ProductInfo";
+import { ProductInfo } from "../../../types/ProductResponse";
 
 function ProductContainer() {
   const [products, setProducts] = useState<ProductInfo[]>([]);

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ProductInfo } from '../types/ProductInfo';
+import { ProductInfo } from '../types/ProductResponse';
 import { BASE_URL } from '../pages/Home/context/baseURL';
 
 export const getProducts = async (
