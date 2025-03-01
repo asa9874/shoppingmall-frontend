@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { BASE_URL } from "../context/baseURL";
 import { useAuthStore } from "../store/useAuthStore";
+import { getMemberInfo } from "../apis/getMemberInfo";
 
 function Header() {
   const { id, nickname, role, setUser, logout } = useAuthStore();
@@ -10,42 +10,20 @@ function Header() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) return;
-    fetchMemberInfo(token);
-  }, []);
-
-  const fetchMemberInfo = async (token: string) => {
-    try {
-      const response = await fetch(`${BASE_URL}/member/my-info`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-
-        if (data.id && data.memberId && data.nickname && data.role) {
-          setUser({
-            id: data.id,
-            memberId: data.memberId,
-            nickname: data.nickname,
-            role: data.role,
-          });
-        } else {
-          console.error("유효한 사용자 정보 없음");
-          logout();
-        }
+    
+    getMemberInfo(token).then((data) => {
+      if (data) {
+        setUser({
+          id: data.id,
+          memberId: data.memberId,
+          nickname: data.nickname,
+          role: data.role,
+        });
       } else {
-        console.error("회원 정보 불러오기 실패");
         logout();
       }
-    } catch (error) {
-      console.error("API 요청 오류:", error);
-      logout();
-    }
-  };
+    });
+  }, []);
 
   const handleLogout = () => {
     logout();
