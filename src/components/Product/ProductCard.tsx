@@ -1,7 +1,7 @@
-import { ProductInfo } from '../../../types/ProductResponse';  
+import { ProductResponse } from "../../types/ProductResponse";
 
 interface ProductCardProps {
-    product: ProductInfo; 
+    product: ProductResponse; 
 }
 
 function ProductCard({ product }: ProductCardProps) {

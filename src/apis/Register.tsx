@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BASE_URL } from "../pages/Home/context/baseURL";
+import { BASE_URL } from "../context/baseURL";
 
 export async function registerMember(memberData: { memberId: string, password: string, nickname: string, role: string }) {
   try {

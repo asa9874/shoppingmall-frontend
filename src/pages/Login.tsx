@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginMember } from "../../apis/Login";
+import { loginMember } from "../apis/Login";
 
 function Login() {
   const [formData, setFormData] = useState({ memberId: "", password: "" });

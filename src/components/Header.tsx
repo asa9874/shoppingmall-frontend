@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { BASE_URL } from "../pages/Home/context/baseURL";
+import { BASE_URL } from "../context/baseURL";
 import { useAuthStore } from "../store/useAuthStore";
 
 function Header() {

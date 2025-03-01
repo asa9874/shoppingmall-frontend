@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { registerMember } from '../../apis/Register';
+import { registerMember } from '../apis/Register';
 import { useNavigate } from 'react-router-dom';
 
 function Register() {

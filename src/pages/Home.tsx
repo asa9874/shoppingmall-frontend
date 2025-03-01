@@ -1,4 +1,4 @@
-import ProductContainer from "./components/ProductContainer";
+import ProductContainer from "../components/Product/ProductContainer";
 
 
 function Home(){
