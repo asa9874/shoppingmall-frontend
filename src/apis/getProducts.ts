@@ -1,20 +1,14 @@
-import axios from "axios";
 import { BASE_URL } from "../context/baseURL";
 import { ProductResponse } from "../types/ProductResponse";
+import apiClient from "./apiClient";
 
 export const getProducts = async (
   count: Number
 ): Promise<ProductResponse[]> => {
-  const url = `${BASE_URL}/product/?count=${count}`;
-
   try {
-    const response = await axios.get(url, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const items = response.data;
-    console.log(items, "asdas");
+    const response = await apiClient.get(`${BASE_URL}/product/?count=${count}`);
+    const items = response.data;  
+    console.log(items, "상품들 정보");
     if (!Array.isArray(items)) {
       return [];
     }

@@ -1,19 +1,13 @@
 import axios from 'axios';
 import { BASE_URL } from "../context/baseURL";
+import apiClient from './apiClient';
 
 export async function loginMember(memberData: { memberId: string; password: string }) {
   try {
-    const response = await axios.post(`${BASE_URL}/auth/login`, memberData, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      }
-    });
-
+    const response = await apiClient.post(`${BASE_URL}/auth/login`, memberData);
     if (!response.data?.token) {
       throw new Error("로그인 응답에 토큰이 없습니다.");
     }
-
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {

@@ -1,19 +1,12 @@
-import axios from "axios";
 import { BASE_URL } from "../context/baseURL";
 import { OrderItemResponse } from "../types/OrderItemResponse";
+import apiClient from "./apiClient";
 
 export const getOrderProducts = async (memberId: number): Promise<OrderItemResponse[]> => {
     const token = localStorage.getItem("token");
-    const url = `${BASE_URL}/customer/${memberId}/orders`;
-    if(!token) {return [];}
+    if(!token) return [];
     try {
-      const response = await axios.get(url, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      
+      const response = await apiClient.get(`/customer/${memberId}/orders`);
       const items = response.data;  
       console.log(items, "주문 정보");
   

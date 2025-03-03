@@ -1,19 +1,13 @@
-import axios from "axios";
 import { BASE_URL } from "../context/baseURL";
 import { ProductResponse } from "../types/ProductResponse";
+import apiClient from "./apiClient";
 
 export const getProductById = async (
     productId: number
   ): Promise<ProductResponse> => {  
-    const url = `${BASE_URL}/product/${productId}`;
   
     try {
-      const response = await axios.get(url, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      
+      const response = await apiClient.get(`${BASE_URL}/product/${productId}`);
       const item = response.data;  
       console.log(item, "상품 상세 정보");
   

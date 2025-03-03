@@ -1,15 +1,10 @@
 import axios from 'axios';
 import { BASE_URL } from "../context/baseURL";
+import apiClient from './apiClient';
 
 export async function registerMember(memberData: { memberId: string, password: string, nickname: string, role: string }) {
   try {
-    const response = await axios.post(`${BASE_URL}/member/register`, memberData, {
-      headers: {
-        accept: '*/*', 
-        'Content-Type': 'application/json',
-      },
-    });
-
+    const response = await apiClient.post(`${BASE_URL}/member/register`, memberData);
     return response.data; 
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {
