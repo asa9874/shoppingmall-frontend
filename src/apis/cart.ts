@@ -12,6 +12,7 @@ export const getCartProducts = async (memberId: number): Promise<CartItemRespons
     console.log(items, "카트 정보");
 
     return items.map((item: CartItemResponse) => ({
+      id: item.id,
       productid: item.productid,
       name: item.name,
       image: `${BASE_URL}` + item.image,
@@ -39,6 +40,19 @@ export const addProductToCart = async (memberId: number, productId: number, quan
       productId,
       quantity
     });
+  } catch (error) {
+    console.error("API 호출 에러:", error);
+    throw error;
+  }
+}
+
+
+export const deleteProductFromCart = async (memberId: number, cartItemId: number) => {
+  const token = localStorage.getItem("token");
+  if (!token) return;
+
+  try {
+    await apiClient.delete(`/customer/${memberId}/cart/${cartItemId}`);
   } catch (error) {
     console.error("API 호출 에러:", error);
     throw error;
