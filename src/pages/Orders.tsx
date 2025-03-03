@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getOrderProducts } from "../apis/getOrderProducts";
+import { getOrderProducts } from "../apis/order";
 import OrderCard from "../components/OrderCard";
 import { useAuthStore } from "../store/useAuthStore";
 import { OrderItemResponse } from "../types/OrderItemResponse";

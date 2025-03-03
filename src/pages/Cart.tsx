@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getCartProducts } from "../apis/getCartProducts";
+import { getCartProducts } from "../apis/cart";
 import CartCard from "../components/CartCard";
 import { useAuthStore } from "../store/useAuthStore";
 import { CartItemResponse } from "../types/CartItemResponse";

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getMemberInfo } from "../apis/getMemberInfo";
+import { getMemberInfo } from "../apis/member";
 import { useAuthStore } from "../store/useAuthStore";
 
 function Header() {

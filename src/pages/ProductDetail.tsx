@@ -1,12 +1,12 @@
-// src/pages/ProductDetail.tsx
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProductById } from '../apis/getProductById';
+import { getProductById } from '../apis/product';
 import { useAuthStore } from '../store/useAuthStore';
 
-const ProductDetail: React.FC = () => {
+function ProductDetail() {
     const { productId } = useParams<{ productId: string }>();
     const [product, setProduct] = useState<any>(null);
+    const [count , setCount] = useState(0);
     const { id, role } = useAuthStore();
 
     useEffect(() => {
@@ -22,6 +22,20 @@ const ProductDetail: React.FC = () => {
         };
         fetchProductDetail();
     }, [productId]);
+
+    function handleCountIncrease() {
+        if(count === product.stock) return;
+        setCount(count + 1);
+    }
+
+    function handleCountDecrease() {
+        if(count === 0) return;
+        setCount(count - 1);
+    }   
+
+    function handleAddToCart() {
+
+    }
 
     if (!product) return <div className="text-center text-xl font-semibold">Loading...</div>;
 
@@ -43,15 +57,32 @@ const ProductDetail: React.FC = () => {
                     <div className="mt-4">
                         <p className="text-lg font-semibold text-gray-900">Price: ${product.price}</p>
                         <p className="text-lg text-gray-500">Seller: {product.sellerName}</p>
+                        <p className="text-lg text-gray-500">Stock: {product.stock}</p>
+                        <p className="text-lg text-gray-500">Category: {product.category}</p>
                     </div>
                     <div className="mt-6 flex gap-4">
-                        {id && (
+                        <button
+                            className="px-4 py-2 bg-gray-200 text-gray-800 rounded-full"
+                            onClick={handleCountDecrease}
+                        >
+                            -
+                        </button>
+                        <span className="text-xl font-semibold">{count}</span>
+                        <button
+                            className="px-4 py-2 bg-gray-200 text-gray-800 rounded-full"
+                            onClick={handleCountIncrease}
+                        >
+                            +
+                        </button>
+                    </div>
+                    <div className="mt-6">
+                        {id && role === 'CUSTOMER' && (
                             <div>
                                 <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all">
-                                    Add to Cart
+                                    장바구니에 담기
                                 </button>
                                 <button className="px-6 py-2 border border-blue-600 text-blue-600 rounded-full hover:bg-blue-100 transition-all">
-                                    Buy Now
+                                    바로구입하기
                                 </button>
                             </div>
                         )}

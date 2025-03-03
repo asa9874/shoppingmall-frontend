@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { registerMember } from '../apis/Register';
 import { useNavigate } from 'react-router-dom';
+import { registerMember } from '../apis/auth';
 
 function Register() {
   // 폼 상태 관리
