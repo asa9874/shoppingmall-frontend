@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { addProductToCart } from '../apis/cart';
 import { getProductById } from '../apis/product';
 import { useAuthStore } from '../store/useAuthStore';
 
 function ProductDetail() {
     const { productId } = useParams<{ productId: string }>();
     const [product, setProduct] = useState<any>(null);
-    const [count , setCount] = useState(0);
+    const [count, setCount] = useState(0);
     const { id, role } = useAuthStore();
 
     useEffect(() => {
@@ -24,17 +25,24 @@ function ProductDetail() {
     }, [productId]);
 
     function handleCountIncrease() {
-        if(count === product.stock) return;
+        if (count === product.stock) return;
         setCount(count + 1);
     }
 
     function handleCountDecrease() {
-        if(count === 0) return;
+        if (count === 0) return;
         setCount(count - 1);
-    }   
+    }
 
-    function handleAddToCart() {
+    const handleAddToCart = async () => {
+        if (!id) return;
+        await addProductToCart(id, product.id, count);
+    }
 
+    const handleBuyNow = async () => {
+        if (!id) return;
+        await addProductToCart(id, product.id, count);
+        window.location.href = '/';
     }
 
     if (!product) return <div className="text-center text-xl font-semibold">Loading...</div>;
@@ -78,10 +86,17 @@ function ProductDetail() {
                     <div className="mt-6">
                         {id && role === 'CUSTOMER' && (
                             <div>
-                                <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all">
+                                <button
+                                    className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all"
+                                    onClick={handleAddToCart}
+                                >
+
                                     장바구니에 담기
                                 </button>
-                                <button className="px-6 py-2 border border-blue-600 text-blue-600 rounded-full hover:bg-blue-100 transition-all">
+                                <button
+                                    className="px-6 py-2 border border-blue-600 text-blue-600 rounded-full hover:bg-blue-100 transition-all"
+                                    onClick={handleBuyNow}
+                                >
                                     바로구입하기
                                 </button>
                             </div>
