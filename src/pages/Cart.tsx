@@ -19,12 +19,22 @@ function Cart() {
             }
         }
         fetchCartProduct();
+        
     }, []);
 
+    useEffect(() => {
+        if (cartProduct.length === 0) return;
+        const total = cartProduct.reduce((acc, item) => {
+            return acc + item.price * item.quantity;
+        }, 0);
+        setTotalPrice(total);
+    }, [cartProduct]);
 
     return (
         <div className="min-h-screen bg-gray-100 p-10 flex justify-center items-center">
             <div className="w-4/5 min-h-screen bg-white p-5 rounded-lg shadow-md">
+            <span className="text-2xl font-bold">장바구니</span>
+            <span>${totalPrice}</span>
             {cartProduct.map((cartProduct) => (
                 <CartCard key={String(cartProduct.productid)} cartProduct={cartProduct} />
             ))}
