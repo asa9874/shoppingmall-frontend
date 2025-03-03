@@ -1,8 +1,12 @@
 import { BASE_URL } from "../context/baseURL";
 
-export const getMemberInfo = async (token: string) => {
+export const getMemberInfo = async () => {
+  const token = localStorage.getItem("token");
+  const url = `${BASE_URL}/member/my-info`;
+  
+  if(!token) {return null;}
   try {
-    const response = await fetch(`${BASE_URL}/member/my-info`, {
+    const response = await fetch(url, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,

@@ -1,17 +1,14 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuthStore } from "../store/useAuthStore";
 import { getMemberInfo } from "../apis/getMemberInfo";
+import { useAuthStore } from "../store/useAuthStore";
 
 function Header() {
   const { id, nickname, role, setUser, logout } = useAuthStore();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) return;
-    
-    getMemberInfo(token).then((data) => {
+    getMemberInfo().then((data) => {
       if (data) {
         setUser({
           id: data.id,
@@ -26,6 +23,7 @@ function Header() {
   }, []);
 
   const handleLogout = () => {
+    localStorage.removeItem("token");
     logout();
     navigate("/");
   };

@@ -1,6 +1,6 @@
 import axios from "axios";
-import { ProductResponse } from "../types/ProductResponse";
 import { BASE_URL } from "../context/baseURL";
+import { ProductResponse } from "../types/ProductResponse";
 
 export const getProducts = async (
   count: Number
@@ -26,7 +26,7 @@ export const getProducts = async (
       price: item.price,
       stock: item.stock,
       sellerName: item.sellerName,
-      image: BASE_URL+"/images/"+item.image,
+      image: `${BASE_URL}`+item.image,
       category: item.category,
     }));
     
