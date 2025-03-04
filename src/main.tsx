@@ -1,17 +1,18 @@
-import { createRoot } from 'react-dom/client'
-import Home from './pages/Home'
-import './styles/index.css';
-import './styles/reset.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Register from './pages/Register';
-import Login from './pages/Login';
+import { createRoot } from 'react-dom/client';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
+import Cart from './pages/Cart';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import OrderDetail from './pages/OrderDetail';
+import Orders from './pages/Orders';
 import ProductDetail from './pages/ProductDetail';
 import ProductSearch from './pages/ProductSearch';
-import Cart from './pages/Cart';
-import Orders from './pages/Orders';
-import OrderDetail from './pages/OrderDetail';
+import Register from './pages/Register';
 import SellerProducts from './pages/SellerProducts';
+import SellerProductsCreate from './pages/SellerProductsCreate';
+import './styles/index.css';
+import './styles/reset.css';
 
 createRoot(document.getElementById('root')!).render(
   <Router>
@@ -36,6 +37,7 @@ createRoot(document.getElementById('root')!).render(
         
         {/* 판매자 관련 페이지 */}
         <Route path="/seller/:memberId/products" element={<SellerProducts />} />  
+        <Route path="/seller/:memberId/products/create" element={<SellerProductsCreate />} />  
       </Route>
       
       {/* 회원가입 페이지 */}

@@ -36,7 +36,7 @@ function Header() {
         </button>
       </Link>
 
-      {id ? ( 
+      {id ? (
         <div className="flex items-center gap-4">
           <span className="font-bold">{nickname}님</span>
 
@@ -49,11 +49,18 @@ function Header() {
           )}
 
           {role === "SELLER" && (
-            <Link to={`/seller/${id}/products`}>
-              <button className="bg-yellow-500 px-4 py-2 rounded hover:bg-yellow-700">
-                판매자 페이지
-              </button>
-            </Link>
+            <>
+              <Link to={`/seller/${id}/products`}>
+                <button className="bg-yellow-500 px-4 py-2 rounded hover:bg-yellow-700">
+                  상품 관리
+                </button>
+              </Link>
+              <Link to={`/seller/${id}/products/create`}>
+                <button className="bg-yellow-500 px-4 py-2 rounded hover:bg-yellow-700">
+                  상품 등록
+                </button>
+              </Link>
+            </>
           )}
 
           {role === "CUSTOMER" && (
