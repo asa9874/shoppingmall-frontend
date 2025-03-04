@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { deleteProductFromCart } from "../apis/cart";
+import { deleteSellerProduct } from "../apis/seller";
 import { useAuthStore } from "../store/useAuthStore";
 import { ProductResponse } from "../types/ProductResponse";
 
@@ -10,9 +10,9 @@ interface SellerCardProps {
 function SellerCard({ sellerProduct }: SellerCardProps) {
     const {id} = useAuthStore();
 
-    const handleDeleteCart = async () => {
+    const handleDeleteProduct = async () => {
         if (!id) return;
-        await deleteProductFromCart(id, sellerProduct.id);
+        await deleteSellerProduct(id, sellerProduct.id);
     }
     return (
         <div>
@@ -37,7 +37,7 @@ function SellerCard({ sellerProduct }: SellerCardProps) {
                 </div>
             </Link>
             <button
-                onClick={handleDeleteCart}
+                onClick={handleDeleteProduct}
                 className="bg-red-500 text-white p-2 rounded-lg"
             >
                 삭제
