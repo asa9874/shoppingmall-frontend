@@ -102,6 +102,19 @@ function ProductDetail() {
                                 </button>
                             </div>
                         )}
+
+                        {id && role === 'SELLER' && (
+                            <div>
+                                <button
+                                    className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all"
+                                    onClick={() => {
+                                        window.location.href = `/seller/${id}/products/update/${product.id}`;
+                                    }}
+                                >
+                                    상품 수정
+                                </button>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

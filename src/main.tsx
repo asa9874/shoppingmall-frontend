@@ -11,6 +11,7 @@ import ProductSearch from './pages/ProductSearch';
 import Register from './pages/Register';
 import SellerProducts from './pages/SellerProducts';
 import SellerProductsCreate from './pages/SellerProductsCreate';
+import SellerProductsUpdate from './pages/SellerProductsUpdate';
 import './styles/index.css';
 import './styles/reset.css';
 
@@ -38,6 +39,7 @@ createRoot(document.getElementById('root')!).render(
         {/* 판매자 관련 페이지 */}
         <Route path="/seller/:memberId/products" element={<SellerProducts />} />  
         <Route path="/seller/:memberId/products/create" element={<SellerProductsCreate />} />  
+        <Route path="/seller/:memberId/products/update/:productId" element={<SellerProductsUpdate />} />  
       </Route>
       
       {/* 회원가입 페이지 */}

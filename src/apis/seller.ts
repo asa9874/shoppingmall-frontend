@@ -64,3 +64,20 @@ export const addProduct = async (
     throw error;
   }
 }
+
+
+export const updateProduct = async (
+  memberId: Number,
+  productId: Number,
+  formData: FormData
+) => {
+  const token = localStorage.getItem("token");
+  if (!token) return;
+
+  try {
+    await apiClient.put(`/seller/${memberId}/product/${productId}`, formData);
+  } catch (error) {
+    console.error("API 호출 에러:", error);
+    throw error;
+  }
+}
