@@ -7,6 +7,14 @@ function MemberDetail() {
     <div className="min-h-screen bg-gray-100 p-10 flex justify-center items-center">
       <div className="w-4/5 min-h-screen bg-white p-5 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-5">내 정보</h2>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onClick={() => {
+            window.location.href = `/member/${id}/update`;
+          }}
+        >
+          수정
+        </button>
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">사용자 ID</label>

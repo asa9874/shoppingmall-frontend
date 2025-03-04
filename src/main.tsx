@@ -5,6 +5,7 @@ import Cart from './pages/Cart';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import MemberDetail from './pages/MemberDetail';
+import MemberUpdate from './pages/MemberUpdate';
 import OrderDetail from './pages/OrderDetail';
 import Orders from './pages/Orders';
 import ProductDetail from './pages/ProductDetail';
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')!).render(
         
         {/* 회원 관련 페이지 */}
         <Route path="/member/:memberId" element={<MemberDetail/>} />  
+        <Route path="/member/:memberId/update" element={<MemberUpdate />} />
         
         {/* 상품 관련 페이지 */}
         <Route path="/product/:productId" element={<ProductDetail />} />  

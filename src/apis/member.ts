@@ -14,3 +14,16 @@ export const getMemberInfo = async () => {
     throw error;
   }
 };
+
+
+export const updateMemberInfo = async (memberId:number ,formData: {nickname: string}) => {
+  const token = localStorage.getItem("token");
+  if (!token) return [];
+  try {
+    await apiClient.put(`${BASE_URL}/member/${memberId}`, formData);
+    console.log("회원 정보 수정");
+  } catch (error) {
+    console.error("API 호출 에러:", error);
+    throw error;
+  }
+}
