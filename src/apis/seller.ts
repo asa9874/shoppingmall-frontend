@@ -48,3 +48,19 @@ export const deleteSellerProduct = async (
     throw error;
   }
 }; 
+
+
+export const addProduct = async (
+  memberId: Number,
+  formData: FormData
+) => {
+  const token = localStorage.getItem("token");
+  if (!token) return;
+
+  try {
+    await apiClient.post(`/seller/${memberId}/product/create`, formData);
+  } catch (error) {
+    console.error("API 호출 에러:", error);
+    throw error;
+  }
+}
