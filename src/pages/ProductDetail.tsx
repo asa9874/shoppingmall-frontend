@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { addProductToCart } from '../apis/cart';
+import { addProductToOrder } from '../apis/order';
 import { getProductById } from '../apis/product';
 import { useAuthStore } from '../store/useAuthStore';
 
@@ -41,7 +42,7 @@ function ProductDetail() {
 
     const handleBuyNow = async () => {
         if (!id) return;
-        await addProductToCart(id, product.id, count);
+        await addProductToOrder(id, product.id, count);
         window.location.href = '/';
     }
 

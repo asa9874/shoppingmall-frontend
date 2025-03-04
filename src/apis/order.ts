@@ -29,14 +29,12 @@ export const getOrderProducts = async (memberId: number): Promise<OrderItemRespo
   }
 };
 
-
-//TODO: 이거 BACKEND에서 아직 PATHvariable로 받아오는거에서 안바꿔서 작동안함
 export const addProductToOrder = async (memberId: number, productId: number, quantity: number) => {
   const token = localStorage.getItem("token");
   if (!token) return;
   try {
     await apiClient.post(`/customer/${memberId}/orders/${productId}`, {
-      quantity
+      "quantity": quantity
     });
   } catch (error) {
     console.error("API 호출 에러:", error);
