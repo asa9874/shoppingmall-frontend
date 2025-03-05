@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useAuthStore } from "../store/useAuthStore";
 import { OrderItemResponse } from "../types/OrderItemResponse";
 
 interface OrderCardProps {
@@ -6,9 +7,11 @@ interface OrderCardProps {
 }
 
 function OrderCard({ OrderProduct }: OrderCardProps) {
+    const { id } = useAuthStore();
+    console.log(OrderProduct);
     return (
         <Link
-            to={`/product/${OrderProduct.productid}`}
+            to={`/customer/${id}/orders/${OrderProduct.id}`}
             className="h-[300px] bg-white flex gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all p-3 border border-gray-400"
         >
             <img

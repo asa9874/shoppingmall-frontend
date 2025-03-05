@@ -1,4 +1,5 @@
 export interface OrderItemResponse {
+    id: number;                  // 주문 ID
     productid: number;           // 상품 ID
     name: string;                // 상품 이름
     image: string;               // 상품 이미지 URL

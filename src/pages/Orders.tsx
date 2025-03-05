@@ -35,7 +35,7 @@ function Orders() {
             <span className="text-2xl font-bold">주문상품목록</span>
             <span>${totalPrice}</span>
             {orderProduct.map((orderProduct) => (
-                <OrderCard key={String(orderProduct.productid)} OrderProduct={orderProduct} />
+                <OrderCard key={String(orderProduct.id)} OrderProduct={orderProduct} />
             ))}
             </div>
         </div>
