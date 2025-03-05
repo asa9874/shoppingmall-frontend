@@ -57,3 +57,15 @@ export const deleteProductFromCart = async (memberId: number, cartItemId: number
     throw error;
   }
 }
+
+export const clearCart = async (memberId: number) => {
+  const token = localStorage.getItem("token");
+  if (!token) return;
+
+  try {
+    await apiClient.delete(`/customer/${memberId}/cart/clear`);
+  } catch (error) {
+    console.error("API 호출 에러:", error);
+    throw error;
+  }
+}
