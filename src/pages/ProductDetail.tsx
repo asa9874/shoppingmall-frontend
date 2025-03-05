@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { addProductToCart } from '../apis/cart';
 import { addProductToOrder } from '../apis/order';
 import { getProductById } from '../apis/product';
+import ReviewCard from '../components/ReviewCard';
 import { useAuthStore } from '../store/useAuthStore';
 
 function ProductDetail() {
@@ -117,6 +118,24 @@ function ProductDetail() {
                         )}
                     </div>
                 </div>
+            </div>
+            <div className="mt-6">
+                리뷰
+                <ReviewCard />
+                <ReviewCard />
+                <ReviewCard />
+                <ReviewCard />
+                <ReviewCard />
+                <ReviewCard />
+                <ReviewCard />
+                <ReviewCard />
+                <ReviewCard />
+                <form>
+                    <div className='w-full bg-gray-200 h-[200px] rounded-xl flex flex-col p-2 mt-3'>
+                        <input type="text" placeholder="리뷰를 작성해주세요" className='w-full h-3/4 mt-2 ml-2 rounded-xl p-4' />
+                        <button type="submit" className='w-1/4 h-1/4 bg-blue-600 text-white rounded-xl mt-2 ml-2'>작성</button>
+                    </div>
+                </form>
             </div>
         </div>
     );
