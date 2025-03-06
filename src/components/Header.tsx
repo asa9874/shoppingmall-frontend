@@ -32,7 +32,7 @@ function Header() {
     <div className="h-[60px] bg-gray-800 flex items-center justify-between px-6 text-white">
       <Link to="/">
         <button className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-700">
-          홈
+          HOME
         </button>
       </Link>
 
