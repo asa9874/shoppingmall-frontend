@@ -16,6 +16,7 @@
     "@types/react-slick": "^0.23.13",
     "axios": "^1.7.9",
     "bcsd-frontend-project": "file:",
+    "embla-carousel-react": "^8.5.2",
     "esbuild": "^0.25.0",
     "framer-motion": "^12.0.6",
     "gh-pages": "^6.3.0",

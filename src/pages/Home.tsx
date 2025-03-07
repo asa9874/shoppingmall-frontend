@@ -28,7 +28,7 @@ function Home() {
   return (
     <div className="min-h-screen bg-gray-100 p-10 flex flex-col gap-10 items-center">
       <HomeSlider />
-      <div className="bg-white mt-10 rounded-xl shadow-lg p-6 w-full ">
+      <div className="bg-white mt-10 rounded-xl shadow-lg p-6 w-[90%]">
         <h2 className="text-xl font-bold text-gray-800">
           너에게 추천하는 제품!!!!
         </h2>
