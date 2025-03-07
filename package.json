@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@types/react-slick": "^0.23.13",
     "axios": "^1.7.9",
     "bcsd-frontend-project": "file:",
     "esbuild": "^0.25.0",
@@ -23,7 +24,9 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-intersection-observer": "^9.15.1",
     "react-router-dom": "^7.1.5",
+    "react-slick": "^0.30.3",
     "shoppingmall-frontend": "file:",
+    "slick-carousel": "^1.8.1",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
