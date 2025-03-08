@@ -21,7 +21,7 @@ function SellerCard({ sellerProduct }: SellerCardProps) {
                 className="h-[300px] bg-white flex gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all p-3 border border-gray-400"
             >
                 <img
-                    className="w-1/3 h-full object-cover rounded-lg"
+                    className="w-1/3 h-full  rounded-lg"
                     src={sellerProduct.image}
                     alt={sellerProduct.name}
                 />

@@ -2,15 +2,15 @@ import HomeCategoryComponents from "./HomeCategoryComponents";
 
 function HomeCategory() {
   return (
-    <div className="w-[1600px] flex justify-around items-center">
-        <HomeCategoryComponents />
-        <HomeCategoryComponents />
-        <HomeCategoryComponents />
-        <HomeCategoryComponents />
-        <HomeCategoryComponents />
-        <HomeCategoryComponents />
-        <HomeCategoryComponents />
-        <HomeCategoryComponents />
+    <div className="w-full max-w-screen-xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-4 p-4">
+      <HomeCategoryComponents />
+      <HomeCategoryComponents />
+      <HomeCategoryComponents />
+      <HomeCategoryComponents />
+      <HomeCategoryComponents />
+      <HomeCategoryComponents />
+      <HomeCategoryComponents />
+      <HomeCategoryComponents />
     </div>
   );
 }

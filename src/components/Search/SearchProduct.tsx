@@ -11,7 +11,7 @@ function SearchProduct({ product }: SearchProductProps) {
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover rounded-md"
+          className="w-full h-full  rounded-md"
         />
       </div>
       <div className="ml-4">

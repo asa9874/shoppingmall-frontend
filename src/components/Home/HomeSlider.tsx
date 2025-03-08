@@ -22,11 +22,11 @@ function HomeSlider() {
   }, [emblaApi]);
 
   return (
-    <div className="w-[1500px] h-[500px] flex gap-10 flex-col items-center justify-center bg-gray-300 rounded-2xl relative p-4">
-      <div className="embla" ref={emblaRef}>
-        <div className="embla__container">
+    <div className="w-full max-w-screen-xl mx-auto flex gap-10 flex-col items-center justify-center bg-gray-300 rounded-2xl relative p-4">
+      <div className="embla w-full" ref={emblaRef}>
+        <div className="embla__container flex">
           {images.map((_, index) => (
-            <div className="embla__slide" key={index}>
+            <div className="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%]" key={index}>
               <HomeSliderComponents />
             </div>
           ))}
@@ -34,13 +34,13 @@ function HomeSlider() {
       </div>
       <button
         onClick={scrollPrev}
-        className="absolute left-[60px] p-2 bg-gray-400 text-white rounded-full"
+        className="absolute left-4 sm:left-8 p-2 bg-gray-400 text-white rounded-full"
       >
         {"<"}
       </button>
       <button
         onClick={scrollNext}
-        className="absolute right-[60px]  p-2 bg-gray-400 text-white rounded-full"
+        className="absolute right-4 sm:right-8 p-2 bg-gray-400 text-white rounded-full"
       >
         {">"}
       </button>

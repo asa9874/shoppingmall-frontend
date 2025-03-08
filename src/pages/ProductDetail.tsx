@@ -90,7 +90,7 @@ function ProductDetail() {
       <div className="flex flex-col md:flex-row items-center gap-6 ">
         <div className="w-full md:w-1/2">
           <img
-            className="w-full h-[470px] object-cover rounded-xl shadow-lg"
+            className="w-full h-[470px]  rounded-xl shadow-lg"
             src={product.image}
             alt={product.name}
           />

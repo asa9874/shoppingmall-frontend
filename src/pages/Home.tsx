@@ -24,17 +24,13 @@ function Home() {
     console.log(products);
   }, []);
 
-
-
   return (
-    <div className="min-h-screen p-10 flex flex-col gap-10 items-center">
+    <div className="min-h-screen p-4 md:p-10 flex flex-col gap-10 items-center">
       <HomeSlider />
       <HomeCategory />
-      <div className="bg-white mt-10 rounded-xl shadow-lg p-6 w-[1600px]">
-        <h2 className="text-xl font-bold text-gray-800">
-          전자제품
-        </h2>
-        <div className="bg-white min-h-[280px] gap-10 px-6 py-4 overflow-x-auto scrollbar-hide grid grid-cols-5">
+      <div className="bg-white mt-10 rounded-xl shadow-lg p-6 w-full max-w-screen-xl">
+        <h2 className="text-xl font-bold text-gray-800">전자제품</h2>
+        <div className="bg-white min-h-[280px] gap-4 md:gap-10 px-4 md:px-6 py-4 overflow-x-auto scrollbar-hide grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {products.map((product) => (
             <ProductCard key={String(product.id)} product={product} />
           ))}

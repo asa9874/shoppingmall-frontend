@@ -16,15 +16,15 @@ function ProductCard({ product }: ProductCardProps) {
   return (
     <Link
       to={`/product/${product.id}`}
-      className="bg-white h-[300px] w-[280px] flex flex-col gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all p-3 border border-gray-400"
+      className="bg-white h-[300px] w-full  flex flex-col gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all p-3 border border-gray-400"
     >
       {imageError ? (
-        <div className="h-[200px] w-full flex items-center justify-center bg-gray-300 object-cover rounded-t-xl">
+        <div className="h-[200px] w-full flex items-center justify-center bg-gray-300 rounded-t-xl">
           <span className="text-gray-500">이미지가 없습니다</span>
         </div>
       ) : (
         <img
-          className="h-[200px] w-full object-cover rounded-t-xl"
+          className="h-[200px] w-full rounded-t-xl"
           src={product.image}
           alt={product.name}
           onError={handleImageError}
