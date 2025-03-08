@@ -35,6 +35,12 @@ function Header() {
           HOME
         </button>
       </Link>
+      <Link to="/product/search">
+        <button className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-700">
+          검색
+        </button>
+      </Link>
+
 
       {id ? (
         <div className="flex items-center gap-4">

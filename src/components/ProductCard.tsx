@@ -1,21 +1,35 @@
 import { Link } from "react-router-dom";
 import { ProductResponse } from "../types/ProductResponse";
+import { useState } from "react";
 
 interface ProductCardProps {
   product: ProductResponse;
 }
 
 function ProductCard({ product }: ProductCardProps) {
+  const [imageError, setImageError] = useState(false);
+
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   return (
     <Link
       to={`/product/${product.id}`}
-      className="h-full bg-white w-[200px] flex flex-col gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all p-3 border border-gray-400"
+      className="bg-white h-[300px] w-[280px] flex flex-col gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all p-3 border border-gray-400"
     >
-      <img
-        className="h-full w-full object-cover rounded-t-xl"
-        src={product.image}
-        alt={product.name}
-      />
+      {imageError ? (
+        <div className="h-full w-full flex items-center justify-center bg-gray-300 object-cover rounded-t-xl">
+          <span className="text-gray-500">이미지가 없습니다</span>
+        </div>
+      ) : (
+        <img
+          className="h-full w-full object-cover rounded-t-xl"
+          src={product.image}
+          alt={product.name}
+          onError={handleImageError}
+        />
+      )}
       <span className="text-lg font-semibold text-gray-800">
         {product.name}
       </span>

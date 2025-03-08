@@ -22,7 +22,7 @@ function HomeSlider() {
   }, [emblaApi]);
 
   return (
-    <div className="w-[80%] h-[500px] flex gap-10 flex-col items-center justify-center bg-gray-300 rounded-2xl relative p-4">
+    <div className="w-[1500px] h-[500px] flex gap-10 flex-col items-center justify-center bg-gray-300 rounded-2xl relative p-4">
       <div className="embla" ref={emblaRef}>
         <div className="embla__container">
           {images.map((_, index) => (

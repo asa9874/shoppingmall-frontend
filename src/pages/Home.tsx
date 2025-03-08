@@ -13,7 +13,7 @@ function Home() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const data = await getProducts(20);
+        const data = await getProducts(10);
         setProducts(data);
       } catch (error) {
         console.error("상품 데이터를 가져오는 중 오류 발생:", error);
@@ -27,14 +27,14 @@ function Home() {
 
 
   return (
-    <div className="min-h-screen bg-gray-100 p-10 flex flex-col gap-10 items-center">
+    <div className="min-h-screen p-10 flex flex-col gap-10 items-center">
       <HomeSlider />
       <HomeCategory />
-      <div className="bg-white mt-10 rounded-xl shadow-lg p-6 w-[90%]">
+      <div className="bg-white mt-10 rounded-xl shadow-lg p-6 w-[1600px]">
         <h2 className="text-xl font-bold text-gray-800">
-          너에게 추천하는 제품!!!!
+          전자제품
         </h2>
-        <div className="bg-white min-h-[250px] flex gap-10 px-6 py-4 overflow-x-auto scrollbar-hide">
+        <div className="bg-white min-h-[280px] gap-10 px-6 py-4 overflow-x-auto scrollbar-hide grid grid-cols-5">
           {products.map((product) => (
             <ProductCard key={String(product.id)} product={product} />
           ))}
