@@ -56,3 +56,44 @@ export const getProductById = async (
   }
 };
 
+export interface SearchParams {
+  keyword?: string;
+  category?: string;
+  minPrice?: string;
+  maxPrice?: string;
+  page?: string;
+  count?: string;
+}
+
+export const searchProducts = async (params: SearchParams): Promise<ProductResponse[]> => {
+  try {
+    const queryParams: { [key: string]: string } = {};
+    if (params.keyword) queryParams.keyword = params.keyword;
+    if (params.category) queryParams.category = params.category;
+    if (params.minPrice) queryParams.minPrice = params.minPrice;
+    if (params.maxPrice) queryParams.maxPrice = params.maxPrice;
+    if (params.page) queryParams.page = params.page;
+    if (params.count) queryParams.count = params.count;
+
+    const response = await apiClient.get(`${BASE_URL}/product/search`, { params: queryParams });
+    const items = response.data.content;
+    if (!Array.isArray(items)) {
+      return [];
+    }
+
+    return items.map((item: ProductResponse) => ({
+      id: item.id,
+      name: item.name,
+      description: item.description,
+      price: item.price,
+      stock: item.stock,
+      sellerName: item.sellerName,
+      image: `${BASE_URL}`+item.image,
+      category: item.category,
+    }));
+    
+  } catch (error) {
+    console.error("API 호출 에러:", error);
+    throw error;
+  }
+};

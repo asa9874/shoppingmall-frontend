@@ -1,11 +1,23 @@
-function SearchProduct() {
+import { ProductResponse } from "../../types/ProductResponse";
+
+interface SearchProductProps {
+  product: ProductResponse;
+}
+
+function SearchProduct({ product }: SearchProductProps) {
   return (
     <div className="flex items-center mt-4 flex-col">
-      <div className="w-40 h-40 bg-gray-300 rounded-md"></div>
+      <div className="w-40 h-40 bg-gray-300 rounded-md">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-full object-cover rounded-md"
+        />
+      </div>
       <div className="ml-4">
-        <h3 className="text-lg font-bold">상품 이름</h3>
-        <p className="text-sm text-gray-500">상품 설명</p>
-        <p className="text-sm text-gray-500">가격: 10000원</p>
+        <h3 className="text-lg font-bold">{product.name}</h3>
+        <p className="text-sm text-gray-500">{product.description}</p>
+        <p className="text-sm text-gray-500">가격: {product.price}원</p>
       </div>
     </div>
   );
