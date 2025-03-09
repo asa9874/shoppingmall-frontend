@@ -14,6 +14,7 @@ export const getProducts = async (
     }
 
     return items.map((item: ProductResponse) => ({
+      memberId: item.memberId,
       id: item.id,
       name: item.name,
       description: item.description,
@@ -40,6 +41,7 @@ export const getProductById = async (
     console.log(item, "상품 상세 정보");
 
     return {
+      memberId: item.memberId,
       id: item.id,
       name: item.name,
       description: item.description,
@@ -82,6 +84,7 @@ export const searchProducts = async (params: SearchParams): Promise<ProductRespo
     }
 
     return items.map((item: ProductResponse) => ({
+      memberId: item.memberId,
       id: item.id,
       name: item.name,
       description: item.description,

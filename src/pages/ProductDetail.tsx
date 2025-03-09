@@ -139,7 +139,7 @@ function ProductDetail() {
           </div>
         </div>
       </div>
-      <ProductDetailSellerProducts product={product}/>
+      <ProductDetailSellerProducts sellerMemberId={product.memberId}/>
       <Review product={product} />
     </div>
   );

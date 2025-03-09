@@ -6,5 +6,6 @@ export interface ProductResponse {
     price: number;          // 상품 가격
     stock: number;          // 상품 재고
     sellerName: string;     // 판매자 이름 (닉네임)
+    memberId: number;       // 판매자 ID
     category: string;       // 상품 카테고리
   }
