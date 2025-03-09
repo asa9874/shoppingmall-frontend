@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { addProductToCart } from "../apis/cart";
 import { addProductToOrder } from "../apis/order";
 import { getProductById } from "../apis/product";
+import ProductDetailSellerProducts from "../components/ProductDetail/ProductDetailSellerProducts";
 import Review from "../components/ProductDetail/Review";
 import { useAuthStore } from "../store/useAuthStore";
 import { ProductResponse } from "../types/ProductResponse";
@@ -138,6 +139,7 @@ function ProductDetail() {
           </div>
         </div>
       </div>
+      <ProductDetailSellerProducts product={product}/>
       <Review product={product} />
     </div>
   );
