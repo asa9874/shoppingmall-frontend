@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ProductResponse } from "../types/ProductResponse";
-import { useState } from "react";
 
 interface ProductCardProps {
   product: ProductResponse;

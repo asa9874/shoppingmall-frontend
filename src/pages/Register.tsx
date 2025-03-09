@@ -10,6 +10,8 @@ function Register() {
     nickname: '',
     role: 'CUSTOMER', // 기본값은 'CUSTOMER'
   });
+  const [error, setError] = useState('');
+
 
   const navigate = useNavigate();
 
@@ -32,17 +34,23 @@ function Register() {
     };
 
     try {
-      const responseData = await registerMember(memberData); 
+      const responseData = await registerMember(memberData);
       console.log('회원가입 성공:', responseData);
-      navigate('/'); 
-    } catch (error) {
+      navigate('/');
+    } catch (error: any) {
+      setError(error.message);
       console.error(error);
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center">
-  <form onSubmit={handleSubmit} className="w-full max-w-md bg-white p-6 rounded shadow-md">
+      <form onSubmit={handleSubmit} className="w-full max-w-md bg-white p-6 rounded shadow-md">
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <span className="block sm:inline">{error}</span>
+          </div>
+        )}
         <div className="mb-4">
           <label htmlFor="user_id" className="block text-sm font-medium text-gray-700">사용자 아이디</label>
           <input

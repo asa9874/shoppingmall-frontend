@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ProductResponse } from "../../types/ProductResponse";
 
 interface SearchProductProps {
@@ -6,7 +7,8 @@ interface SearchProductProps {
 
 function SearchProduct({ product }: SearchProductProps) {
   return (
-    <div className="flex items-center mt-4 flex-col">
+    <Link
+    to={`/product/${product.id}`} className="flex items-center mt-4 flex-col">
       <div className="w-40 h-40 bg-gray-300 rounded-md">
         <img
           src={product.image}
@@ -19,7 +21,7 @@ function SearchProduct({ product }: SearchProductProps) {
         <p className="text-sm text-gray-500">{product.description}</p>
         <p className="text-sm text-gray-500">가격: {product.price}원</p>
       </div>
-    </div>
+    </Link>
   );
 }
 
