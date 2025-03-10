@@ -46,6 +46,11 @@ function Header() {
             검색
           </button>
         </Link>
+        <Link to="/questions">
+          <button className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-700">
+            질문
+          </button>
+        </Link>
 
         <div className="flex items-center gap-4">
           {id ? (

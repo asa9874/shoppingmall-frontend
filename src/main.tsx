@@ -10,6 +10,8 @@ import OrderDetail from './pages/OrderDetail';
 import Orders from './pages/Orders';
 import ProductDetail from './pages/ProductDetail';
 import ProductSearch from './pages/ProductSearch';
+import QuestionDetail from './pages/QuestionDetail';
+import Questions from './pages/Questions';
 import Register from './pages/Register';
 import SellerProducts from './pages/SellerProducts';
 import SellerProductsCreate from './pages/SellerProductsCreate';
@@ -38,6 +40,10 @@ createRoot(document.getElementById('root')!).render(
         {/* 주문 관련 페이지 */}
         <Route path="/customer/:memberId/orders" element={<Orders />} /> 
         <Route path="/customer/:memberId/orders/:orderId" element={<OrderDetail />} />  
+
+        {/* 질문 관련 페이지 */}
+        <Route path="/questions" element={<Questions />} />
+        <Route path="/questions/:questionId" element={<QuestionDetail />} />
         
         {/* 판매자 관련 페이지 */}
         <Route path="/seller/:memberId/products" element={<SellerProducts />} />  

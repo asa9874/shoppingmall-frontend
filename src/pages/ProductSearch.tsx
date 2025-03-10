@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import SearchProduct from "../components/Search/SearchProduct";
 import { SearchParams, searchProducts } from "../apis/product";
+import SearchProduct from "../components/Search/SearchProduct";
 import { ProductResponse } from "../types/ProductResponse";
 
 const categories = [
