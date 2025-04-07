@@ -14,7 +14,7 @@ function Login() {
       const responseData = await loginMember(formData);
       localStorage.setItem("token", responseData.token);
       navigate("/");
-    } catch (err : any) {
+    } catch (err: any) {
       setError(err.message);
       console.error("로그인 실패:", err);
     }
@@ -59,6 +59,14 @@ function Login() {
           <button type="submit" className="px-6 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-700">
             로그인
           </button>
+        </div>
+        <div className="flex justify-center mt-4">
+          <a
+            href="http://localhost:8080/oauth2/authorization/google"
+            className="px-6 py-2 bg-red-500 text-white font-bold rounded hover:bg-red-600"
+          >
+            Google 로그인
+          </a>
         </div>
       </form>
     </div>

@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import MemberDetail from './pages/MemberDetail';
 import MemberUpdate from './pages/MemberUpdate';
+import OAuth2Redirect from './pages/OAuth2Redirect';
 import OrderDetail from './pages/OrderDetail';
 import Orders from './pages/Orders';
 import ProductDetail from './pages/ProductDetail';
@@ -54,6 +55,7 @@ createRoot(document.getElementById('root')!).render(
       {/* 회원가입 페이지 */}
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/oauth2/redirect" element={<OAuth2Redirect />} />
     </Routes>
   </Router>
 );
